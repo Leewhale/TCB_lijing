@@ -1,0 +1,20 @@
+
+<script type="text/html" id="shoujihuishou">
+	<%for(var n=0; n<result.length; n++){%>
+		<a href=<%="bang.360.cn/huishou?from=index#brand="+result[n].brand_id+"&pid="+result[n].model_id%> class="main_show">
+			<img src=<%=result[n].img_url%>>
+			<p class="p_name"><%=result[n].model_alis%></p>
+		</a>
+	<%}%>
+</script>
+
+
+<script type="text/html" id="ershouliangpin">
+	<%for(var n=0; n<result.length; n++){%>
+		<a href="javascript:void(0)" class="main_show">
+			<img src=<%=result[n].thum_img.old%>>
+			<p class="p_name"><%=result[n].brand_name%><%=result[n].model_name%></p>
+			<p class="p_pirce">￥<%=result[n].price%></p>
+		</a>
+	<%}%>
+</script>

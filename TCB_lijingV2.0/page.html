@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src = "https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<style>
+			#page {
+			margin: 20px 0 0 135px;
+			margin-left: 200px;
+			}
+			#page a {
+			border: 1px solid #D6D6D6;
+			display: inline-block;
+			padding: 13px 18px;
+			margin-right: 10px;
+			}
+			.red{
+				background-color: #FC6621;
+				color: white;
+				font-weight: 2
+			}
+		</style>
+	</head>
+	<body>
+		<div id="page" curpage="5">
+		</div>
+	</body>
+	<script type = "text/javascript">
+		//分页函数
+		function pageUtil(pageId, pageCount, curPage, callback){
+			$("#"+pageId).attr("curPage",curPage);
+			$("#"+pageId).attr("pageCount",pageCount);
+			// 函数第一次执行时为工具栏添加点击事件
+			if($("#"+pageId).find("a").length == 0){
+				// 处理分页栏按钮点击事件
+				$("#"+pageId).on("click","a",function(e){
+					var btnValue = $(this).text();
+					switch(btnValue){
+						case "首页":
+							pageUtil(pageId, pageCount, 1, callback);
+							break;
+						case "尾页":
+							pageUtil(pageId, pageCount, Math.ceil($("#"+pageId).attr("pageCount")/5), callback);
+							break;
+						case "上一页":
+							pageUtil(pageId, pageCount, $("#"+pageId).attr("curPage")-1, callback);
+							break;
+						case "下一页":
+							pageUtil(pageId, pageCount, $("#"+pageId).attr("curPage")-0+1, callback);
+							break;
+						default:
+							pageUtil(pageId, pageCount, parseInt($(this).text()), callback);
+							break;
+					}
+				});
+			}else{
+				callback && callback();
+			}
+			var frame = '<a href="###" style="visibility: visible; color: rgb(102, 102, 102); background: white;">首页</a>'
+						+'<a href="###" style="visibility: visible; color: rgb(102, 102, 102); background: white;">上一页</a>'
+						+'<a href="###" style="color: rgb(102, 102, 102); visibility: visible; background: white;">下一页</a>'
+						+'<a href="###" style="color: rgb(102, 102, 102); visibility: visible; background: white;">尾页</a>';
+			// 将分页栏外层结构插入页面
+			$("#"+pageId).html(frame);
+			// 页码起始值
+			var startIndex = curPage > 5? curPage-4 : 1;
+			//页码 
+			var numList = "";
+			// 循环生成页码
+			for(var n=0; startIndex<=pageCount && n<10; n++){
+				if(startIndex == curPage){
+					numList += '<a href = "#" class="red">' + startIndex + '</a>';
+				}else{
+					numList += '<a href = "#">' + startIndex + '</a>';
+				}
+				startIndex ++;
+			}
+			// 将页码插入页面
+			$("#"+pageId+" a:eq(1)").after(numList);	
+		}
+
+		function showList(){
+			$.ajax({
+				url: "/shop",
+				data: {
+					city_id: "bei_jing",
+					pagesize: 5,
+					pn: curPage
+				},
+				dataType: "json",
+				success: function(data){
+					console.log(data);
+				}
+			});
+		}
+
+
+		// //页码工具栏
+		// function pageUtil(pageId, pageCount, currPage, callback){
+		// 	$("#"+ pageId).attr("currPage", currPage||1);
+		// 	//第一次执行pageutil绑定按钮事件
+		// 	if($("#"+ pageId).children().length == 0){
+		// 		//处理点击事件
+		// 		$("#"+ pageId).on("click", "a", function(e){
+		// 			var targetText = $(this).text(),
+		// 				currPage = parseInt($("#"+ pageId).attr("currPage"));
+		// 			switch(targetText){
+		// 				case "首页":
+		// 					pageUtil(pageId, pageCount, 1, callback);
+		// 					break;
+		// 				case "上一页":
+		// 					pageUtil(pageId, pageCount, currPage -1, callback);
+		// 					break;
+		// 				case "下一页":
+		// 					//pageUtil(pageId, pageCount, currPage = currPage +1);
+		// 					 pageUtil(pageId, pageCount, currPage +1, callback);
+		// 					break;
+		// 				case "尾页":
+		// 					pageUtil(pageId, pageCount, pageCount, callback);
+		// 					break;
+		// 				default:
+		// 					pageUtil(pageId, pageCount, parseInt(targetText), callback);
+		// 					break;
+		// 			}
+		// 		});
+		// 	}
+		// 	var frameStr =   '<a href="###" style="visibility: visible; color: rgb(102, 102, 102); background: white;">首页</a>'
+		// 					+'<a href="###" style="visibility: visible; color: rgb(102, 102, 102); background: white;">上一页</a>'
+		// 					+'<a href="###" style="color: rgb(102, 102, 102); visibility: visible; background: white;">下一页</a>'
+		// 					+'<a href="###" style="color: rgb(102, 102, 102); visibility: visible; background: white;">尾页</a>';
+		// 	//初始化翻页栏结构
+		// 	$("#"+ pageId).html(frameStr);
+		// 	//页码起始值
+		// 	var startIndex = currPage > 5 ? currPage - 4: 1;
+
+		// 	//创建页码html
+		// 	var numStr = "";
+		// 	for(var n = 0; startIndex<=pageCount && n<10; n++){
+		// 		numStr += (startIndex == currPage ? "<a href = '##' class='red'>"+startIndex+"</a>": "<a href = '##'>"+startIndex+"</a>");
+		// 		startIndex++;
+		// 	}
+
+		// 	//显示页码
+		// 	$("#"+ pageId+" a:eq(1)").after(numStr);
+
+		// 	// callback && callback(currPage - 1);
+		// }
+
+		// function queryList(pn, city_id, area_id){
+		// 	$.ajax({
+		// 		url: "/shop",
+		// 		data: {
+		// 			city_id: city_id || "bei_jing",
+		// 			area_id: area_id || "",
+		// 			pagesize: 5,
+		// 			pn: pn || 0
+		// 		},
+		// 		dataType: "json",
+		// 		success: function(data){
+		// 			console.log(JSON.stringify(data));
+		// 		}
+		// 	});
+		// }
+	</script>
+</html>

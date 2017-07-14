@@ -1,0 +1,47 @@
+<script type="text/html" id="xsj">
+		<%for(var n=0; n<result.length; n++){%>
+			<div class="bio_div">
+				<span><%=result[n].name%> ></span>
+				<div>
+					<%for(var m=0; m<result[n].list.length; m++){%>
+						<a href="#"><%=result[n].list[m].name%></a>
+					<%}%>
+				</div>
+			</div>
+		<%}%>
+</script>
+
+
+<script type="text/html" id="xdn">
+	<div>
+		<span>热门问题：</span>
+		<div>
+			<%for(var n=0; n<result.hot.length; n++){%>
+				<a href="#" class="banner_info_btn"><%=result.hot[n].name%></a>
+			<%}%>
+		</div>
+	</div>
+	<div>
+		<span>其他问题：</span>
+		<div>
+			<%for(var m=0; m<result.other.length; m++){%>
+				<a href="#" class="banner_info_btn"><%=result.other[m].name%></a>
+			<%}%>
+		</div>
+	</div>
+	
+</script>
+
+
+<script type="text/html" id="msj">
+	<%for(var n=0; n<result.length; n++){%>
+		<a href="#" class="banner_info_btn"><%=result[n].name%></a>
+	<%}%>
+</script>
+
+
+<script type="text/html" id="mesj">
+	<%for(var n in result){%>
+		<a href="#" class="banner_info_btn"><%=result[n]%></a>
+	<%}%>
+</script>

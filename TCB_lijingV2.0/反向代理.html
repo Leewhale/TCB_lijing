@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src = "js/jquery-1.11.2.js"></script>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	$.ajax({
+		url: "/shop",
+		dataType: "json",
+		data: {
+			// 城市
+			city_id: "bei_jing",
+			// 数量=5
+			pagesize: 5,
+			// 页码
+			pn: 0
+		},
+		success: function(data){
+			console.log(data);
+		}
+	});
+
+
+	$.ajax({
+		url: "/eslpjx",
+		dataType: "json",
+		data: {
+			num: 5
+		},
+		success: function(data){
+			console.log(data);
+		}
+	});
+</script>
+</html>

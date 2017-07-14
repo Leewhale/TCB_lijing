@@ -1,0 +1,26 @@
+<script type="text/html" id="shopInfo">
+	<%for(var n=0; n<shop_data.length; n++){%>
+		<li>
+			<a href=<%=shop_data[n].shop_addr%> class="brandpic"><img src=<%=shop_data[n].shop_ico%>></a>
+			<div class="rankinfo_left">
+				<h3>
+					<a href=<%=shop_data[n].shop_addr%>><%=shop_data[n].shop_name%></a>
+					<span>店铺等级：<a href="#">
+						<span class="shoplevel"></span>
+						<span class="shoplevel"></span>
+						<span class="shoplevel"></span>
+						<span class="shoplevel"></span>
+					</a></span>
+				</h3>
+				<p><%=shop_data[n].main%></p>
+				<p><%=shop_data[n].addr%></p>
+			</div>
+			<div class="rankinfo_right">
+				<p><img src="imgs/￥.png">先行赔付</p>
+				<p><img src="imgs/V.png">同城帮认证</p>
+				<p>人气：<%=shop_data[n].shop_visit%>次浏览</p>
+			</div>
+			<div class="entershop"><a href=<%=shop_data[n].shop_addr%>>进入店铺</a></div>
+		</li>
+	<%}%>
+</script>

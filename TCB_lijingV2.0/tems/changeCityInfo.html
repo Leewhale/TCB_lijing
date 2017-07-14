@@ -1,0 +1,21 @@
+<script type="text/html" id="hotcity">
+	<%for(var n=0; n<result.hotcity.length; n++){%>
+		<a href="javascript:void(0)" class="haveCityCode" cityCode=<%=result.hotcity[n].code%>><%=result.hotcity[n].name%></a>
+	<%}%>
+</script>
+
+<script type="text/html" id="filter_pinyin">
+	<%for(var n in result.citylist){%>
+		<a href="javascript:void(0)"><%=n%></a>
+	<%}%>
+</script>
+
+<script type="text/html" id="filter_result">
+	<%for(var n in result.citylist){%>
+		<div class="city_warp">
+			<%for(var m=0; m<result.citylist[n].length; m++){%>
+				<a href="javascript:void(0)" class="haveCityCode" cityCode=<%=result.citylist[n][m].code%>><%=result.citylist[n][m].name%></a>
+			<%}%>
+		</div>
+	<%}%>
+</script>

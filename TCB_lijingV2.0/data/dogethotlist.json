@@ -1,0 +1,91 @@
+{
+    "errno": 0,
+    "errmsg": "OK",
+    "result": [
+        {
+            "product_id": "2082378338410496",
+            "model_name": "C9  Pro",
+            "brand_id": "1",
+            "brand_name": "三星",
+            "price": 2298,
+            "com_price": "3199",
+            "model_id": "760",
+            "mer_id": "9",
+            "thum_img": {
+                "old": "http://p0.qhmsg.com/t01a04b69342c6855c3.jpg",
+                "big": "http://p0.qhmsg.com/t0157954bbb9e419397.jpg",
+                "mid": "http://p0.qhmsg.com/t016d2738335f69da99.jpg",
+                "min": "http://p0.qhmsg.com/t018afc6f5a99d1f272.jpg"
+            },
+            "mer_name": ""
+        },
+        {
+            "product_id": "2141807921176576",
+            "model_name": "C9  Pro",
+            "brand_id": "1",
+            "brand_name": "三星",
+            "price": 2198,
+            "com_price": "3199",
+            "model_id": "760",
+            "mer_id": "9",
+            "thum_img": {
+                "old": "http://p0.qhmsg.com/t013d82ad40f628e817.jpg",
+                "big": "http://p0.qhmsg.com/t010b9979275987e1bf.jpg",
+                "mid": "http://p0.qhmsg.com/t010d71ce577c1e8a94.jpg",
+                "min": "http://p0.qhmsg.com/t01b88aea3ece548646.jpg"
+            },
+            "mer_name": ""
+        },
+        {
+            "product_id": "2202648396689408",
+            "model_name": "C9  Pro",
+            "brand_id": "1",
+            "brand_name": "三星",
+            "price": 2198,
+            "com_price": "3199",
+            "model_id": "760",
+            "mer_id": "9",
+            "thum_img": {
+                "old": "http://p0.qhmsg.com/t013d82ad40f628e817.jpg",
+                "big": "http://p0.qhmsg.com/t010b9979275987e1bf.jpg",
+                "mid": "http://p0.qhmsg.com/t010d71ce577c1e8a94.jpg",
+                "min": "http://p0.qhmsg.com/t01b88aea3ece548646.jpg"
+            },
+            "mer_name": ""
+        },
+        {
+            "product_id": "2103559419567104",
+            "model_name": "Note4",
+            "brand_id": "1",
+            "brand_name": "三星",
+            "price": 798,
+            "com_price": "1899",
+            "model_id": "209",
+            "mer_id": "9",
+            "thum_img": {
+                "old": "http://p0.qhmsg.com/t01e0e115671fd90901.jpg",
+                "big": "http://p0.qhmsg.com/t01f6c1569f67814a4a.jpg",
+                "mid": "http://p0.qhmsg.com/t0130c3d5a087bbf8f4.jpg",
+                "min": "http://p0.qhmsg.com/t014b526d791203ad9b.jpg"
+            },
+            "mer_name": ""
+        },
+        {
+            "product_id": "2180076841533440",
+            "model_name": "Note 4 N9109W",
+            "brand_id": "1",
+            "brand_name": "三星",
+            "price": 898,
+            "com_price": "3180",
+            "model_id": "195",
+            "mer_id": "9",
+            "thum_img": {
+                "old": "http://p0.qhmsg.com/t016a73c548cbd98ca9.jpg",
+                "big": "http://p0.qhmsg.com/t01e498b379c5a83ddc.jpg",
+                "mid": "http://p0.qhmsg.com/t012366d4fd5d78d5cb.jpg",
+                "min": "http://p0.qhmsg.com/t01da76b4fdb522c00f.jpg"
+            },
+            "mer_name": ""
+        }
+    ]
+}
